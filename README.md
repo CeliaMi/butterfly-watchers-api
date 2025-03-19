@@ -45,14 +45,10 @@ En este ejemplo la base de datos que vamos a utilizar es de **postgres**, pero p
 </details>
 
 <details>
-
-<summary>
-    2️⃣ Estructura de carpetas siguiendo el estilo de Node.js y Express.js
-<summary>
-
+<summary> 2️⃣ Estructura de carpetas siguiendo el estilo de Node.js y Express.js</summary>
+    
 ![image.png](./files/image%201.png)
 ![image.png](./files/image%202.png)
-
 </details>
 
 <details>
