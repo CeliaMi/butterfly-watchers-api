@@ -23,13 +23,18 @@ def read_one_butterfly(butterfly_id: int, db: Session = Depends(get_db)):
     return butterflyController.get_butterfly_by_id(db, butterfly_id)
 
 
-# # Ruta "/butterflies/" POST para crear una mariposa
+# Ruta "/butterflies/" POST para crear una mariposa
 @router.post("/butterflies", response_model=Butterfly)
 def create_butterfly(butterfly: ButterflyCreate, db: Session = Depends(get_db)):
     return butterflyController.create_butterfly(db, butterfly)
 
-# # Ruta "/butterflies/{butterfly_id}" PUT para actualizar una mariposa por su ID
+# Ruta "/butterflies/{butterfly_id}" PUT para actualizar una mariposa por su ID
 @router.put("/butterflies/{butterfly_id}", response_model=Butterfly)
 def update_butterfly(butterfly_id: int, butterfly: ButterflyUpdate, db: Session = Depends(get_db)):
     return butterflyController.update_butterfly(db, butterfly_id, butterfly)
+
+# Ruta "/butterflies/{butterfly_id}" DELETE para eliminar una mariposa por su ID
+@router.delete("/butterflies/{butterfly_id}")
+def delete_butterfly(butterfly_id: int, db: Session = Depends(get_db)):
+    return butterflyController.delete_butterfly(db, butterfly_id)
 

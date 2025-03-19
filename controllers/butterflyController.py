@@ -1,7 +1,5 @@
 from sqlalchemy.orm import Session
 from models.butterflyModel import Butterfly
-from database import database_connection
-from fastapi import Depends
 from schemas.buterflySchema import ButterflyCreate, ButterflyUpdate
 
 # Todas estas funciones realizan consultas (query) en la base de datos
@@ -10,7 +8,7 @@ from schemas.buterflySchema import ButterflyCreate, ButterflyUpdate
 # Función que consulta en db todas las mariposas: query READ
 # db.query(Butterfly) le dice a la bd sobre que tabla tiene que hacer la consulta (Butterfly el modelo)
 # .all() le dice a la bd que traiga todos los registros de la tabla
-def get_butterflies(db: Session = Depends(database_connection.get_db)): 
+def get_butterflies(db: Session): 
     return db.query(Butterfly).all()
 
 # Función que consulta en db una mariposa por su ID con método filter: query READ
@@ -45,3 +43,14 @@ def update_butterfly(db: Session, butterfly_id: int, butterfly: ButterflyUpdate)
     update_butterfly = db.query(Butterfly).filter(Butterfly.id == butterfly_id).first()
     return update_butterfly
 
+#Función para eliminar una mariposa de la base de datos: query DELETE    
+# El método filter() filtra en la bd por el id de la mariposa que queremos eliminar
+# El método delete() elimina esa mariposa ya filtrada de la base de datos
+# El método commit() guarda los cambios en la base de datos
+
+#Este controlador es muy básico, lo ideal sería seguir codeando los casos de error.
+
+def delete_butterfly(db: Session, butterfly_id: int):
+    db.query(Butterfly).filter(Butterfly.id == butterfly_id).delete()   
+    db.commit()
+    return {"message": f"Butterfly {butterfly_id} deleted successfully"}
