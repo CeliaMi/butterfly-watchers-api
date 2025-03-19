@@ -333,10 +333,11 @@ Si tu array está vacío es porqué tu tabla no tiene ningún registro, para pod
 ![image.png](./files/image%206.png)
 
 En el repositorio encontrarás la explicación del resto de métodos del CRUD a través de comentarios.
+No olvides que fastApi hace la documentación de forma automática en swagger simplemente tienes que consultar tu enlace local añadiendo `docs#/`:
 
-Recuerda, si vas a subir tu repo a github
+- http://127.0.0.1:8000/docs#/
 
-Si vas a compartir este repositorio no olvides crear un archivo `requirements.txt`
+Recuerda, si vas a subir tu repo a github no olvides crear un archivo `requirements.txt`
 
 ```powershell
 pip freeze > requirements.txt
@@ -350,3 +351,4 @@ python -m venv venv
 source venv/Scripts/activate  # En Windows (o venv\Scripts\activate en CMD)
 pip install -r requirements.txt
 ```
+
