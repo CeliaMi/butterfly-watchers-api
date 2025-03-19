@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from controllers import butterflyController
 from schemas.buterflySchema import Butterfly
-from schemas.buterflySchema import ButterflyCreate
+from schemas.buterflySchema import ButterflyCreate, ButterflyUpdate
 from database.database_connection import get_db
 from sqlalchemy.orm import Session
 from fastapi import Depends
@@ -29,7 +29,7 @@ def create_butterfly(butterfly: ButterflyCreate, db: Session = Depends(get_db)):
     return butterflyController.create_butterfly(db, butterfly)
 
 # # Ruta "/butterflies/{butterfly_id}" PUT para actualizar una mariposa por su ID
-# @router.put("/butterflies/{butterfly_id}", response_model=Butterfly)
-# def update_butterfly(butterfly_id: int, butterfly: Butterfly, db: Session = Depends(get_db)):
-#     return butterflyController.update_butterfly(db, butterfly_id, butterfly)
+@router.put("/butterflies/{butterfly_id}", response_model=Butterfly)
+def update_butterfly(butterfly_id: int, butterfly: ButterflyUpdate, db: Session = Depends(get_db)):
+    return butterflyController.update_butterfly(db, butterfly_id, butterfly)
 

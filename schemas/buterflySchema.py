@@ -11,6 +11,9 @@ class ButterflyBase(BaseModel):
 class ButterflyCreate(ButterflyBase):
     pass
 
+class ButterflyUpdate(ButterflyBase):
+    pass
+
 class Butterfly(ButterflyBase):
     id: int
 
