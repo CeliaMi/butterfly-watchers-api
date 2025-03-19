@@ -25,8 +25,9 @@ A nivel técnico esta práctica está pensada para aprender a codear un CRUD sen
 
 ¡Comenzamos!
 
-| Lenguaje | **Python** |
+| | |
 | --- | --- |
+| Lenguaje | **Python** |
 | Framework | **fast-API** |
 | Objetivo | **CRUD básico** |
 | Enfoque | para desarrolladoras de **JavaScript** |
