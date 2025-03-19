@@ -10,7 +10,7 @@ from fastapi import Depends
 router = APIRouter()
 
 # Ruta "/butterflies/" GET para obtener todas las mariposas
-@router.get("/butterflies/")
+@router.get("/butterflies", response_model=list[Butterfly])
 def read_butterflies(db: Session = Depends(get_db)):
         return butterflyController.get_butterflies(db)
 
